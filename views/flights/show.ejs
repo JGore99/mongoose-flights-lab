@@ -12,5 +12,21 @@
     <div>Departing</div>
     <div><%= flight.departs %> </div>
   </section>
+  <section class="ticket-info">
+    <h3>Purchase Tickets</h3>
+    <form id="new-ticket" action="/flights/<%= flight._id %>/ticket" method="POST">
+      <h4>Seats: A1 - F99</h4>
+      <input name="seat" required pattern="[A-F][1-9]\d?">
+      <button type="submit">Purchase</button>
+    </form>
+  </section>
+  <section>
+    <% if (flight.ticket.length) { %> 
+      <% flight.ticket.forEach(function(ticket) { %>
+        Seat: <%= ticket.seat %>
+        Price: <%= ticket.price %>
+    <% }) %> 
+    <% } %> 
+  </section>
 </main>
 <%- include("../partials/footer.ejs")  %> 

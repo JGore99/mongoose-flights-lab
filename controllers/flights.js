@@ -1,5 +1,15 @@
 import { Flight } from "../models/flights.js"
 
+
+function index(req, res) {
+  Flight.find({}, function(err, flight){
+    res.render("flights/index", {
+      flight,
+      title: "Available Flights"
+    })
+  })
+}
+
 function newFlight(req, res) {
   res.render("flights/new", {
     title: "Add Flight"
@@ -21,15 +31,6 @@ function create(req, res) {
   })
 }
 
-function index(req, res) {
-  Flight.find({}, function(err, flights){
-    res.render("flights/index", {
-      flights,
-      title: "Available Flights"
-    })
-  })
-}
-
 function show(req, res) {
   Flight.findById(req.params.id, function(error, flight){
     res.render("flights/show", {
@@ -39,10 +40,21 @@ function show(req, res) {
   })   
 }
 
+function createTicket(req, res) {
+  Flight.findById(req.params.id, function(err, flight){
+    flight.ticket.push(req.body)
+    flight.save(function(err) {
+      res.redirect(`/flights/${flight._id}`, {
+      }) 
+    })
+  })
+}
+
 export {
+  index,
   newFlight as new,
   create,
-  index,
-  show
+  show,
+  createTicket
 }
 
