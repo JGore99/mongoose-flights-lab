@@ -1,0 +1,16 @@
+<%- include("../partials/html-head.ejs")  %> 
+<%- include("../partials/nav.ejs")  %> 
+<main>
+  <h1><%= title  %> </h1>
+  <section>
+    <div>Flight Number</div>
+    <div><%= flight.flightNo %> </div>
+    <div>Airline</div>
+    <div><%= flight.airline %> </div>
+    <div>Airport</div>
+    <div><%= flight.airport %> </div>
+    <div>Departing</div>
+    <div><%= flight.departs %> </div>
+  </section>
+</main>
+<%- include("../partials/footer.ejs")  %> 
