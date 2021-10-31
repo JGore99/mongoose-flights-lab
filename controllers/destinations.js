@@ -15,12 +15,6 @@ function create(req, res) {
   })
 }
 
-// function show(req, res) {
-//   Destination.findById(req.params.id, function(error, flight){
-//     res.redirect("/destinations/new")
-//   })   
-// }
-
 export {
   newDestination as new,
   create,

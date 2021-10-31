@@ -47,7 +47,6 @@ function show(req, res) {
   })
 }
 
-
 function createTicket(req, res) {
   Flight.findById(req.params.id, function(err, flight){
     req.body.price = 500,
