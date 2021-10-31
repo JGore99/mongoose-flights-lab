@@ -42,10 +42,10 @@ function show(req, res) {
 
 function createTicket(req, res) {
   Flight.findById(req.params.id, function(err, flight){
+    req.body.price = 500,
     flight.ticket.push(req.body)
     flight.save(function(err) {
-      res.redirect(`/flights/${flight._id}`, {
-      }) 
+      res.redirect(`/flights/${flight._id}`) 
     })
   })
 }
