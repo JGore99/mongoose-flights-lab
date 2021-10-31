@@ -21,12 +21,17 @@
     </form>
   </section>
   <section>
-    <% if (flight.ticket.length) { %> 
-      <% flight.ticket.forEach(function(ticket) { %>
+    <% if (flight.tickets.length) { %> 
+      <% flight.tickets.forEach(function(ticket) { %>
         Seat: <%= ticket.seat %>
         Price: <%= ticket.price %>
     <% }) %> 
     <% } %> 
   </section>
+  <select>
+    <% destinations.forEach(function(destination) { %>
+      <option><%= destination.place %></option>
+    <% }) %> 
+  </select>
 </main>
 <%- include("../partials/footer.ejs")  %> 
