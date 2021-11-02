@@ -28,10 +28,19 @@
     <% }) %> 
     <% } %> 
   </section>
+  <section>
+    <form id="add-destinations" action="/destinations/<%= flight._id %>/destinations" method="POST">
+      <ul name="destinationId">
+        <%- flight.destinations.map(d => `<li value="${d._id}">${d.airport}</li>`).join('') %>
+      </ul>
+    </form>
+  </section>
   <select>
     <% destinations.forEach(function(destination) { %>
-      <option><%= destination.place %></option>
-    <% }) %> 
-  </select>
+      <option><%= destination.airport %></option>
+      <% }) %> 
+    </select>
+    <button type="submit">Add Destination</button>
 </main>
 <%- include("../partials/footer.ejs")  %> 
+

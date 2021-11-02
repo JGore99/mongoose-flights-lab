@@ -4,14 +4,14 @@
   <h1><%= title %> </h1>
   <p>Please add your destination if it isn't on the list.</p>
   <form id="add-destination-form" action="/destinations" method="POST">
-    <label for="place-input">Add Destination</label>
-    <input type="text" name="place" id="place-input">
+    <label for="airport-input">Add Destination</label>
+    <input type="text" name="airport" id="airport-input">
     <button type="submit">Submit</button>
   </form>
   <tbody>
     <% destinations.forEach((destination) => { %> 
       <tr>
-        <td><%= destination.place %></td>
+        <td><%= destination.airport %></td>
       </tr>
     <% }) %> 
   </tbody>

@@ -57,11 +57,21 @@ function createTicket(req, res) {
   })
 }
 
+function addDestination(req, res) {
+  Flight.findById(req.params.id, function(err, flight) {
+    flight.destination.push(req.body.destinationID)
+    flight.save(function(err) {
+      res.redirect(`/flights/${flight._id}`)
+    })
+  })
+}
+
 export {
   index,
   newFlight as new,
   create,
   show,
-  createTicket
+  createTicket,
+  addDestination
 }
 
