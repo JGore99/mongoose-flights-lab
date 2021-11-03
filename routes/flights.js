@@ -15,7 +15,7 @@ router.get("/:id", flightsCtrl.show)
 
 router.post("/:id/ticket", flightsCtrl.createTicket)
 
-router.post("/:id/destination", flightsCtrl.addDestination)
+router.post("/:id/destinations", flightsCtrl.addDestination)
 
 export {
   router
